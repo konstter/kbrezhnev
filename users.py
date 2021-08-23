@@ -24,3 +24,5 @@ else:
 conn.commit()
 
 conn.close()
+
+print('Hello!')
