@@ -6,33 +6,27 @@ def twoSum(nums, target):
     :param target: int
     :return: List[int]
     '''
+    temp_dict = {}
+    for i in range(len(nums)):
+        temp_dict[nums[i]] = i
+    nums.sort()
+    i = 0
+    j = -1
     output_list = []
-    j = 0
-    while j < len(nums):
-        for i in range(len(nums)):
-            if i != j:
-                if nums[i] + nums[j] == target:
-                    if i < j:
-                        output_list.append(i)
-                        output_list.append(j)
-                    else:
-                        output_list.append(j)
-                        output_list.append(i)
-                    return output_list
-        j +=1
+    while True:
+        if nums[i] + nums[j] == target:
+            output_list.append(temp_dict.get(nums[i]))
+            output_list.append(temp_dict.get(nums[j]))
+            return output_list
+        elif nums[i] + nums[j] < target:
+            i += 1
+        else:
+            j -= 1
 
 
-n = [3, 2, 7, 1, 8]
+n = [1, 2, 10, 7, 8]
 t = 15
 
 print(twoSum(n, t))
 
-# n = [2, 7, 11, 15]
-# t = 9
-
-# n = [3, 2, 4]
-# t = 6
-
-# n = [3, 3]
-# t = 6
 
