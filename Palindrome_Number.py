@@ -6,23 +6,28 @@ def ispalindrome(x):
     :param x: Integer
     :return: True or False
     '''
-    if x >= 0:
-        int_max = pow(2, 31)-1
-        y = 0
+    if 0 <= x < pow(2, 31) - 1:
+        y = 0.1
         x_cache = x
         while x != 0:
-            pop = abs(x) % 10
             x //= 10
-            if y > int_max/10 or (y == int_max/10 and pop > 7):
+            y *= 10
+        print(int(y))
+        print(x_cache)
+        while y >= 10:
+            print(x_cache % 10)
+            print(x_cache // y)
+            if x_cache % 10 == int(x_cache // y):
+                x_cache %= y
+                print(x_cache)
+                x_cache //= 10
+                print(x_cache)
+                y /= 100
+            else:
                 return False
-            y = y * 10 + pop
-        if x_cache == y:
-            return True
-        else:
-            return False
+        return True
     else:
         return False
-
 
 num = 0
 print(ispalindrome(num))
