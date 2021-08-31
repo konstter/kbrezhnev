@@ -6,7 +6,7 @@ def isvalid(s):
             if bracket in ("(", "[", "{"):
                 l.append(bracket)
             elif (l and bracket == ")" and l[-1] == "(") or (l and bracket == "]" and l[-1] == "[") or (l and bracket == "}" and l[-1] == "{"):
-                    l.pop()
+                l.pop()
             else:
                 return False
         if l:
