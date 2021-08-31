@@ -1,16 +1,19 @@
 # https://leetcode.com/problems/valid-parentheses/
 
 def isvalid(s):
-    l = ["()", "{}", "[]"]
-    while s != "":
-        tmp = s
-        for elem in l:
-            i = tmp.find(elem)
-            if i > -1:
-                s = str.replace(tmp, elem, '')
-        if s == tmp:
+        l = []
+        for bracket in s:
+            if bracket in ("(", "[", "{"):
+                l.append(bracket)
+            elif (l and bracket == ")" and l[-1] == "(") or (l and bracket == "]" and l[-1] == "[") or (l and bracket == "}" and l[-1] == "{"):
+                    l.pop()
+            else:
+                return False
+        if l:
             return False
-    return True
+        else:
+            return True
 
-ex = "(){}{}"
+
+ex = "))"
 print(isvalid(ex))
