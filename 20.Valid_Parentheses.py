@@ -2,10 +2,11 @@
 
 def isvalid(s):
         l = []
+        d = {")": "(", "]": "[", "}": "{"}
         for bracket in s:
             if bracket in ("(", "[", "{"):
                 l.append(bracket)
-            elif (l and bracket == ")" and l[-1] == "(") or (l and bracket == "]" and l[-1] == "[") or (l and bracket == "}" and l[-1] == "{"):
+            elif l and d[bracket] == l[-1]:
                 l.pop()
             else:
                 return False
@@ -15,5 +16,5 @@ def isvalid(s):
             return True
 
 
-ex = "))"
+ex = "{"
 print(isvalid(ex))
