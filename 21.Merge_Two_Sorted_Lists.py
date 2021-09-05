@@ -15,40 +15,27 @@ def lst2link(lst):
     return head
 
 def mergetwolists(l1, l2):
-    if not l1 and not l2:
-        return None
-    elif not l1:
-        res = h = ListNode(l2.val)
-        l2 = l2.next
-    elif not l2:
-        res = h = ListNode(l1.val)
-        l1 = l1.next
-    else:
-        if l1.val <= l2.val:
-            res = h = ListNode(l1.val)
-            l1 = l1.next
+    if not l1 or not l2: return l1 or l2
+    h1, h2 = l1, l2
+    h_res = None
+    res = None
+
+    while h1 and h2:
+        if h1.val < h2.val:
+            tmp = h1.val
+            h1 = h1.next
         else:
-            res = h = ListNode(l2.val)
-            l2 = l2.next
-    while l1 or l2:
-        if l1 and l2:
-            if l1.val <= l2.val:
-                res.next = ListNode(l1.val)
-                res = res.next
-                l1 = l1.next
-            else:
-                res.next = ListNode(l2.val)
-                res = res.next
-                l2 = l2.next
-        elif not l1:
-            res.next = ListNode(l2.val)
-            res = res.next
-            l2 = l2.next
+            tmp = h2.val
+            h2 = h2.next
+
+        if not res:
+            res = ListNode(tmp)
+            h_res = res
         else:
-            res.next = ListNode(l1.val)
+            res.next = ListNode(tmp)
             res = res.next
-            l1 = l1.next
-    return h
+    res.next = h1 or h2
+    return h_res
 
 l1 = lst2link([1, 2, 3])
 l2 = lst2link([3, 4, 5])
