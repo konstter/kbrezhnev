@@ -13,7 +13,6 @@ def dectobin(n):
     res = ""
     while n != 0:
         r = n % 2
-        print(n, r)
         res = str(r) + res
         n = n // 2
     return res
