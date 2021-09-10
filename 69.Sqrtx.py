@@ -11,6 +11,7 @@ def mysqrt(x):
     else:
         return y - 1
 
+
 given = 1024
 print(mysqrt(given))
 
