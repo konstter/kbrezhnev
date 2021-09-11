@@ -1,31 +1,21 @@
 # https://leetcode.com/problems/add-binary/
 
-def bintodec(k):
-    x = 0
-    res = 0
-    for i in range(len(k)-1, -1, -1):
-        res += 2 ** x * int(k[i])
-        x += 1
+def addbinary(a: str, b: str) -> str:
+    max_len = max(len(a), len(b))
+    a = a.zfill(max_len)
+    b = b.zfill(max_len)
+    res = ''
+    c = 0
+    for i in range(max_len - 1, -1, -1):
+        r = c
+        r += 1 if a[i] == '1' else 0
+        r += 1 if b[i] == '1' else 0
+        res = ('1' if r % 2 == 1 else '0') + res
+        c = 0 if r < 2 else 1
+    if c != 0: res = '1' + res
     return res
 
 
-def dectobin(n):
-    res = ""
-    while n != 0:
-        r = n % 2
-        res = str(r) + res
-        n = n // 2
-    return res
+print(addbinary('1101', '100'))
 
-
-def addbinary(a, b):
-    if a == '0': return b
-    if b == '0': return a
-    n = bintodec(a) + bintodec(b)
-    return dectobin(n)
-
-
-astr = "1010"
-bstr = "1011"
-print(addbinary(astr, bstr))
 
