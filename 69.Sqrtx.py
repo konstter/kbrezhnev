@@ -11,7 +11,6 @@ def mysqrt(x):
             r = mid
         else:
             l = mid + 1
-    return l
 
 
 print(mysqrt(1024))
