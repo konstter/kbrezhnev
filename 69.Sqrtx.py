@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/sqrtx/
 
-def mysqrt(x):
+
     if not x or x == 1: return x
     l, r = 0, x
     while l < r:
