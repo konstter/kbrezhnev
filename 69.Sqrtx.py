@@ -1,16 +1,17 @@
 # https://leetcode.com/problems/sqrtx/
 
-def mysqrt(x):
-    y = 0
-    while y * y < x:
-        y += 10
-    while y * y > x:
-        y -= 1
-    if y * y <= x:
-        return y
-    else:
-        return y - 1
+
+    if not x or x == 1: return x
+    l, r = 0, x
+    while l < r:
+        mid = (l + r) // 2
+        if mid ** 2 <= x < (mid + 1) ** 2:
+            return mid
+        if mid ** 2 > x:
+            r = mid
+        else:
+            l = mid + 1
 
 
-given = 1024
-print(mysqrt(given))
+print(mysqrt(1024))
+
