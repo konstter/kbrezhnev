@@ -29,8 +29,7 @@ def issametree(p, q):
         return True
     if not p or not q:
         return False
-    if p and q:
-        if p.val != q.val:
+    if p.val != q.val:
             return False
     return issametree(p.left, q.left) and issametree(p.right, q.right)
 
