@@ -27,11 +27,23 @@ class TreeNode:
 def issametree(p, q):
     if not p and not q:
         return True
-    if not p or not q:
-        return False
-    if p.val != q.val:
+    s1, s2 = [], []
+    while True:
+        if p and q:
+            if p.val != q.val:
+                return False
+            else:
+                s1.append(p)
+                s2.append(q)
+                p, q = p.left, q.left
+        elif not p and not q and s1 and s2:
+            item1, item2 = s1.pop(), s2.pop()
+            p, q = item1.right, item2.right
+        elif not p and not q and not s1 and not s2:
+            return True
+        else:
             return False
-    return issametree(p.left, q.left) and issametree(p.right, q.right)
+
 
 
 l1 = [1, 0, 2, 3]
