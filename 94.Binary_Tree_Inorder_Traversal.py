@@ -24,22 +24,27 @@ class TreeNode:
             self.node_insert(l[i])
 
 
-def inordertraversal(r, l):
-    if r:
-        inordertraversal(r.left, l)
-        l.append(r.val)
-        inordertraversal(r.right, l)
-    return l
+def inordertraversal(root):
+    if not root: return []
+    s = []
+    res = []
+    while True:
+        if not root and s:
+            item = s.pop()
+            res.append(item.val)
+            root = item.right
+        else:
+            s.append(root)
+            root = root.left
+        if not root and not s:
+            return res
 
-
-def inorder(root):
-    return inordertraversal(root, [])
 
 
 l = [1, 0, 2, 3]
 root = TreeNode(l[0])
 TreeNode.from_list(root, l)
 
-print(inorder(root))
+print(inordertraversal(root))
 
 
