@@ -19,26 +19,6 @@ class TreeNode:
         foo(root, 0)
         return self.f
 
-
-# root = TreeNode(1)
-# root.right = TreeNode(2)
-# root.right.right = TreeNode(3)
-# root.right.right.right = TreeNode(4)
-# root.right.right.right.right = TreeNode(5)
-# print(f'Result: {root.haspathsum(15)}')
-
-
-# root = TreeNode(-9)
-# root.left = TreeNode(-3)
-# root.left.right = TreeNode(4)
-# root.left.right.left = TreeNode(-6)
-# root.left.right.right = TreeNode(0)
-# root.right = TreeNode(2)
-# root.right.left = TreeNode(4)
-# root.right.left.left = TreeNode(-5)
-# root.right.right = TreeNode(0)
-# print(f'Result: {haspathsum(root, -8)}')
-
 root = TreeNode(1)
 root.left = TreeNode(-2)
 root.left.left = TreeNode(1)
