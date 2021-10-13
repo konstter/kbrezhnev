@@ -1,21 +1,18 @@
 
-
 def two_dict(dict1, dict2, path):
-    l = list(dict1.keys())
-    for item in l:
-        path += item
-        if isinstance(dict1[item], dict):
+    for key, value in dict1.items():
+        path += key
+        if isinstance(value, dict):
             path += ' -> '
-            return two_dict(dict1[item], dict2[item], path)
+            return two_dict(dict1[key], dict2[key], path)
         else:
-            if isinstance(dict1[item], list):
-                dict1[item].sort()
-                dict2[item].sort()
-            if dict1[item] != dict2[item]:
+            if isinstance(value, list):
+                dict1[key].sort()
+                dict2[key].sort()
+            if dict1[key] != dict2[key]:
                 print(path)
             else:
                 path = ''
-
 
 
 
