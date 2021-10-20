@@ -1,11 +1,11 @@
 # https://leetcode.com/problems/linked-list-cycle/
 
 def hascycle(head):
-    if not head: return False
-    while True:
-        if not head.next:
-            return False
-        head.val = 'passed'
-        head = head.next
-        if head.val == 'passed':
+    slow = fast = head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
             return True
+    return False
