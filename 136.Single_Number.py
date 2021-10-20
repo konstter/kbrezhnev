@@ -1,16 +1,16 @@
 # https://leetcode.com/problems/single-number/
 
 def singlenumber(nums):
-    l = len(nums)
-    if l == 1: return nums[0]
-    nums.sort()
-    i = 0
-    while i < l - 1:
-        if nums[i] != nums[i+1]:
-            return nums[i]
-        i += 2
-    return nums[-1]
+    res = nums[0]
+    for x in range(1, len(nums)):
+        res ^= nums[x]
+    return res
 
 
 if __name__ == '__main__':
-    print(singlenumber([3, 2, 5, 2, 5]))
+    print(singlenumber([5, 2, 3, 2, 5]))
+# XOR operation
+    print(5^2)
+    print(7^3)
+    print(4^2)
+    print(6^5)
