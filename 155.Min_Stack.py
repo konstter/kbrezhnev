@@ -15,10 +15,11 @@ class MinStack:
         return self.minstack[-1]
 
     def getmin(self):
-        return min(self.minstack)
+        m = min(self.minstack)
+        return m
 
 
-if __name__ ==  '__main__':
+if __name__ == '__main__':
     m = MinStack()
     m.push(-3)
     m.push(0)
