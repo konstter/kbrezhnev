@@ -18,9 +18,9 @@ def getintersectionnode(headA , headB):
     hA, hB = headA, headB
     a, b = lengthoglist(headA), lengthoglist(headB)
     if a > b:
-        hA = newhead(headA, abs(a-b))
+        hA = newhead(headA, a-b)
     elif b > a:
-        hB = newhead(headB, abs(a-b))
+        hB = newhead(headB, b-a)
 
     while hA:
         if hA == hB:
