@@ -3,11 +3,11 @@
 def hammingweight(n):
     if n == 0: return 0
     hw = 0
-    while n != 1:
-        if n % 2 == 1:
+    while n:
+        if n & 1:
             hw += 1
-        n //= 2
-    return hw + 1
+        n >>= 1
+    return hw
 
 
 if __name__ == '__main__':
