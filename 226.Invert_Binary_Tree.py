@@ -13,8 +13,7 @@ def inverttree(root):
     def foo(root):
         if not root: return
         if root:
-            k, root.left = root.left, root.right
-            root.right = k
+            root.left, root.right = root.right, root.left
             foo(root.left)
             foo(root.right)
     foo(root)
